@@ -1,0 +1,9 @@
+controller_v3.0\cli_command.o: ..\App\cli_command.c
+controller_v3.0\cli_command.o: ..\App\cli_command.h
+controller_v3.0\cli_command.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+controller_v3.0\cli_command.o: ..\App\err_types.h
+controller_v3.0\cli_command.o: ..\App\data_frame.h
+controller_v3.0\cli_command.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
+controller_v3.0\cli_command.o: ..\App\mes_list_func.h
+controller_v3.0\cli_command.o: ..\App\mes_type.h
+controller_v3.0\cli_command.o: ..\App\device_control.h
