@@ -4,7 +4,7 @@
 #include "stdint.h"
 
 uint16_t def_hardware_ver = 0x2001;
-uint16_t def_firmware_ver = 0x1005;
+uint16_t def_firmware_ver = 0x0501;
 char def_serial_number[50] = "Intins Inc, LS-01, 163049, V1.0.5";
 uint8_t def_number_of_channel = 1;
 uint16_t def_max_curr_can_pro = 2000;

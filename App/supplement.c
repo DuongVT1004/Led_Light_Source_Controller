@@ -27,11 +27,16 @@ uint32_t tranfer_hex_to_dec(uint8_t *n, uint8_t length)
 uint16_t transfer_array2_to_hex(uint8_t *arr)
 {
 	uint16_t s;
-	s = ((uint16_t)arr[0]) | (((uint16_t)arr[1]) << 8);
+	s = (((uint16_t)arr[0]) << 8) | ((uint16_t)arr[1]);
 	return s;
 }
 
 void invert_integer32(uint32_t *a)
 {
 	*a = (*a >> 24) | (((*a) >> 8) & 0x0000FF00) | (((*a) << 8) & 0x00FF0000) | (*a << 24);
+}
+
+void reverse_uint16(uint16_t *a)
+{
+	*a = ((*a) << 8) | ((*a) >> 8);
 }

@@ -3,14 +3,14 @@
 #include "mes_list_func.h"
 #include "device_control.h"
 
-uint8_t data[100]; // truong du lieu
+uint8_t data[100]; 
 
-data_field s_frame; // frame nhan chua co data
-uint16_t data_len;
-uint16_t mes_type;
-device_typedef device_infomation;
+data_field s_frame; // frame to receive data
+uint16_t data_len;  // length of frame
+uint16_t mes_type;  // mesage type
+device_typedef device_infomation;  // global variable to save infmation of device
 
-// Khoi tao cac message type
+// initialize device message types
 device_message_type mess_code = {
 	.get_hardware_ver = 0x0010,
 	.get_firmware_ver = 0x0011,
@@ -21,6 +21,7 @@ device_message_type mess_code = {
 	.wire_firmware = 0x0003
 };
 
+// initialize led mesage types
 led_message_type led_code = {
 	.get_number_of_channel = 0x0800,
 	.set_number_of_channel = 0x0801,
@@ -35,6 +36,7 @@ led_message_type led_code = {
 	.turn_on_off_shutter = 0x080F
 };
 
+// save data in s_frame from buffer
 void cli_command_handle(uint8_t *buffer, uint16_t len)
 {
 	memcpy(s_frame.Start_Sync, buffer, 2);

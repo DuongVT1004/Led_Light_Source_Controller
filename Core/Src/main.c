@@ -100,7 +100,9 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 	UNUSED(htim);
 	if(htim->Instance == htim2.Instance)
 	{
+		// cycle of timer is 1000 and when timer interrupts, counter is incremented by 1
 		counter++;
+		// if counter is 100, timer stops and flag is 1 then uart transmition ends
 		if(counter == 100)
 		{
 			 flag = 1;
@@ -144,15 +146,20 @@ int main(void)
   MX_TIM2_Init();
   MX_I2C1_Init();
   /* USER CODE BEGIN 2 */
+	
+	// initialize huart for responsing
 	response_init(&huart1);
+	// i2c configuration
 	config_i2c(&hi2c1);
-	HAL_TIM_Base_Start_IT(&htim2);
-	HAL_TIM_Base_Stop_IT(&htim2);
+//	HAL_TIM_Base_Start_IT(&htim2);
+//	HAL_TIM_Base_Stop_IT(&htim2);
 	test_dev = BH1750_init_dev_struct(&hi2c1, "test device", true);
   BH1750_init_dev(test_dev);
+	// Turn on the indicator light
 	HAL_GPIO_WritePin(LED_GPIO_Port, LED_Pin, GPIO_PIN_SET);
+	// initialize driver circuit
 	driver_init();
-	
+	// initialize information of device
 	initialize_device();
 	HAL_UART_Receive_IT(&huart1, &rx_data, 1);
 	//erase_device();
@@ -180,8 +187,6 @@ int main(void)
 
     /* USER CODE BEGIN 3 */
 		uart_handle();
-//		ADXL345_get_acc_norm(&adxl345);
-//		HAL_Delay(100);
   }
   /* USER CODE END 3 */
 }

@@ -79,8 +79,8 @@ error_type detect_invalid_data_unknow_mes_error(device_typedef *device_info, dat
 			break;
 		case 0x080A:
 			chan = data[0];
-		  if(chan > 7) return INVALID_DATA;
-		  data_2 = transfer_array2_to_hex(data+1);
+		  	if(chan > 7) return INVALID_DATA;
+		  	data_2 = transfer_array2_to_hex(data+1);
 			uint16_t b = device_info->channel[chan].max_curr_prov;
 			b = (b >> 8) | (b << 8);
 			if(b < data_2) return INVALID_DATA;
@@ -226,7 +226,8 @@ void get_firmware_version(device_typedef *device_info, uint8_t *data)
 	take_device_info_from_flash(device_info);
 	res_init.r_Message_Type = 0x1100;
 	res_init.r_Data_Len = 0x02000000;
-	respone_message_init();                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  
+	respone_message_init();
+	reverse_uint16((uint16_t*)(&device_info->firmware_ver));                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  
 	memcpy(res_frame_no_err, &r_frame, 12);
 	memcpy(res_frame_no_err + 12, (uint8_t*)&(device_info->firmware_ver), 2);
 	memcpy(res_frame_no_err + 14, &r_frame.End_Sync, 2);
@@ -324,6 +325,7 @@ void get_max_current_can_provide(device_typedef *device_info, uint8_t *data)
 		memcpy(res_frame_no_err, &r_frame, 12); 
 		for(int i = 0; i < device_info->number_of_channel; i++)
 		{
+			//reverse_uint16((uint16_t*)(&device_info->channel[i].max_curr_prov));
 			memcpy(res_frame_no_err + 12 + i*2, (uint8_t*)&(device_info->channel[i].max_curr_prov), 2);
 		}
 		memcpy(res_frame_no_err + 12 + device_info->number_of_channel * 2, &r_frame.End_Sync, 2);
@@ -407,7 +409,7 @@ void turn_on_channel(device_typedef *device_info, uint8_t *data) // message type
 	}
 	//memcpy((uint8_t *)&(device_info->channel[chan].channel_index), &chan, 1);
 	//flash_erase_and_write(ADDR_DEVICE_INFO, (uint8_t *)device_info, sizeof(device_typedef));	
-	// Có nhiêu kênh hon thì cân sua doan code này
+	// Cï¿½ nhiï¿½u kï¿½nh hon thï¿½ cï¿½n sua doan code nï¿½y
 	//transmit_data_to_max5215(MAX5215_ADDRESS, CODE_LOAD, (uint8_t *)&(device_info->channel[chan].channel_current), 300);
 	turn_on((uint8_t*)&(device_info->channel[chan].channel_current));
 }
@@ -436,6 +438,10 @@ void turn_off_channel(device_typedef *device_info, uint8_t *data)
 void save_curr_setting(device_typedef *device_info, uint8_t *data) // 0x080D
 {
 	(void)data;
+	for(int i = 0; i < device_info->number_of_channel; i++)
+	{
+		reverse_uint16((uint16_t*)(&device_info->channel[i].channel_current));
+	}
 	flash_erase_and_write(ADDR_DEVICE_INFO, (uint8_t *)device_info, sizeof(device_typedef));	
 }
 
@@ -445,7 +451,7 @@ void get_curr_setting(device_typedef *device_info, uint8_t *data)
 	take_device_info_from_flash(device_info);
 	//uint8_t chan = data[0];
 	res_init.r_Message_Type = 0x0E08;
-	res_init.r_Data_Len = 14 + device_info->number_of_channel * 2;
+	res_init.r_Data_Len = device_info->number_of_channel * 2;
 	invert_integer32(&res_init.r_Data_Len);
 	respone_message_init();
 	memcpy(res_frame_no_err, &r_frame, 12); 

@@ -8,6 +8,9 @@
 
 #define VREF 2.5
 
+uint16_t i2c_data;
+uint16_t f_data;
+
 I2C_HandleTypeDef *i2c;
 //BH1750_device_t a;
 //extern BH1750_device_t* test_dev;
@@ -26,8 +29,8 @@ uint16_t i2c_data_handle(uint8_t *data)
 
 void transmit_data_to_max5215(uint8_t device_addr, uint8_t command, uint8_t *data, uint16_t timeout)
 {
-	uint16_t i2c_data = i2c_data_handle(data);
-	uint16_t f_data;
+	i2c_data = i2c_data_handle(data);
+	i2c_data = (i2c_data << 8) | (i2c_data >> 8);
 	f_data = ((((float)i2c_data)/1000) * pow(2, 14)) / VREF;
 	f_data = f_data << 2;
 	uint8_t i2c_buf[3];

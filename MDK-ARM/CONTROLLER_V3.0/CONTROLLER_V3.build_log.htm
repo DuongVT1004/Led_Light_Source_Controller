@@ -27,14 +27,31 @@ Project File Date:  06/25/2024
 <h2>Output:</h2>
 *** Using Compiler 'V5.06 update 6 (build 750)', folder: 'C:\Keil_v5\ARM\ARMCC\Bin'
 Build target 'CONTROLLER_V3.0'
-compiling i2c.c...
-..\App\bh1750.h(90): warning:  #1-D: last line of file ends without a newline
-  #endif /* BH1750_H_ */
-..\App\i2c.c: 1 warning, 0 errors
+compiling device_control.c...
+..\App\device_control.c(66): warning:  #111-D: statement is unreachable
+  			break;
+..\App\device_control.c(70): warning:  #111-D: statement is unreachable
+  			break;
+..\App\device_control.c(79): warning:  #111-D: statement is unreachable
+  			break;
+..\App\device_control.c(88): warning:  #111-D: statement is unreachable
+  			break;
+..\App\device_control.c(95): warning:  #111-D: statement is unreachable
+  			break;
+..\App\device_control.c(59): warning:  #546-D: transfer of control bypasses initialization of:
+            variable "a"  (declared at line 75)
+            variable "b"  (declared at line 84)
+  	switch (mess_type_int)
+  	^
+..\App\device_control.c(115): warning:  #940-D: missing return statement at end of non-void function "detect_invalid_data_unknow_mes_error" 
+  }
+..\App\device_control.c(197): warning:  #940-D: missing return statement at end of non-void function "error_excute" 
+  }
+..\App\device_control.c: 8 warnings, 0 errors
 linking...
-Program Size: Code=27616 RO-data=1088 RW-data=272 ZI-data=2400  
+Program Size: Code=27664 RO-data=1088 RW-data=276 ZI-data=2396  
 FromELF: creating hex file...
-"CONTROLLER_V3.0\CONTROLLER_V3.0" - 0 Error(s), 1 Warning(s).
+"CONTROLLER_V3.0\CONTROLLER_V3.0" - 0 Error(s), 8 Warning(s).
 
 <h2>Software Packages used:</h2>
 

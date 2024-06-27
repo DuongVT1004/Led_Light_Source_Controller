@@ -9,6 +9,7 @@ uint8_t flag = 0;
 extern uint8_t counter;
 extern TIM_HandleTypeDef htim2;
 
+// receive 1 byte data and save to buffer via uart
 void receive_data(uint8_t data)
 {
 		__HAL_TIM_SET_COUNTER(&htim2, 0);
@@ -20,13 +21,15 @@ void receive_data(uint8_t data)
 		counter = 0;
 }
 
+/*
+	function to handle uart data
+	if flag = 1, uart frame ends
+*/
 void uart_handle()
 {
 	if(flag)
 	{
 		response_print("%d", len);
-//		cli_command_handle(buffer, len);
-//		device_excute();
 		device_handle(buffer, len);
 		len = 0;
 		flag = 0;
