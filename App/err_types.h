@@ -1,6 +1,7 @@
 #ifndef _ERR_TYPES_H_
 #define _ERR_TYPES_H_
 
+// error code
 typedef enum 
 {
 	SUCCES = 0,

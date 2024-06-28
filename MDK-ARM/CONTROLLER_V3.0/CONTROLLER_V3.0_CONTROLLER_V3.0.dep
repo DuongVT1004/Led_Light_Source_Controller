@@ -1,7 +1,7 @@
 Dependencies for Project 'CONTROLLER_V3.0', Target 'CONTROLLER_V3.0': (DO NOT MODIFY !)
 CompilerVersion: 5060750::V5.06 update 6 (build 750)::.\ARMCC
 F (startup_stm32f103xe.s)(0x66729468)(--cpu Cortex-M3 -g --apcs=interwork -I.\RTE\_CONTROLLER_V3.0-IC:\Users\vutie\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include-IC:\Users\vutie\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.4.1\Device\Include--pd "__UVISION_VERSION SETA 531" --pd "_RTE_ SETA 1" --pd "STM32F10X_HD SETA 1" --pd "_RTE_ SETA 1"--list startup_stm32f103xe.lst --xref -o controller_v3.0\startup_stm32f103xe.o --depend controller_v3.0\startup_stm32f103xe.d)
-F (../Core/Src/main.c)(0x667A46E7)(--c99 -c --cpu Cortex-M3 -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include -I ../App-I.\RTE\_CONTROLLER_V3.0-IC:\Users\vutie\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include-IC:\Users\vutie\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.4.1\Device\Include-D__UVISION_VERSION="531" -D_RTE_ -DSTM32F10X_HD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xE-o controller_v3.0\main.o --omf_browse controller_v3.0\main.crf --depend controller_v3.0\main.d)
+F (../Core/Src/main.c)(0x667E15B8)(--c99 -c --cpu Cortex-M3 -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include -I ../App-I.\RTE\_CONTROLLER_V3.0-IC:\Users\vutie\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include-IC:\Users\vutie\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.4.1\Device\Include-D__UVISION_VERSION="531" -D_RTE_ -DSTM32F10X_HD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xE-o controller_v3.0\main.o --omf_browse controller_v3.0\main.crf --depend controller_v3.0\main.d)
 I (../Core/Inc/main.h)(0x66729467)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x66583BC1)
 I (../Core/Inc/stm32f1xx_hal_conf.h)(0x6666BF3E)
@@ -31,13 +31,13 @@ I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pwr.h)(0x66583BC1)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim.h)(0x66583BC1)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h)(0x66583BC1)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h)(0x66583BC1)
-I (../App/uart.h)(0x665D66AF)
+I (../App/uart.h)(0x667E1700)
 I (../App/response_ci.h)(0x66665A8A)
 I (../App/i2c.h)(0x6672A5AB)
 I (../App/max5215.h)(0x666A5712)
-I (../App/cli_command.h)(0x66739BF8)
-I (../App/err_types.h)(0x666A6E93)
-I (../App/data_frame.h)(0x6667D6BB)
+I (../App/cli_command.h)(0x667E1A8A)
+I (../App/err_types.h)(0x667E1CCB)
+I (../App/data_frame.h)(0x667E1CA5)
 I (../App/bh1750.h)(0x667A2120)
 F (../Core/Src/stm32f1xx_it.c)(0x665FCFD6)(--c99 -c --cpu Cortex-M3 -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include -I ../App-I.\RTE\_CONTROLLER_V3.0-IC:\Users\vutie\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include-IC:\Users\vutie\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.4.1\Device\Include-D__UVISION_VERSION="531" -D_RTE_ -DSTM32F10X_HD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xE-o controller_v3.0\stm32f1xx_it.o --omf_browse controller_v3.0\stm32f1xx_it.crf --depend controller_v3.0\stm32f1xx_it.d)
 I (../Core/Inc/main.h)(0x66729467)
@@ -598,7 +598,7 @@ I (C:\Keil_v5\ARM\ARMCC\include\stdarg.h)(0x5EC7840C)
 I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x5EC7840C)
 I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x5EC78414)
 F (..\App\uart.c)(0x667A49B1)(--c99 -c --cpu Cortex-M3 -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include -I ../App-I.\RTE\_CONTROLLER_V3.0-IC:\Users\vutie\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include-IC:\Users\vutie\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.4.1\Device\Include-D__UVISION_VERSION="531" -D_RTE_ -DSTM32F10X_HD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xE-o controller_v3.0\uart.o --omf_browse controller_v3.0\uart.crf --depend controller_v3.0\uart.d)
-I (..\App\uart.h)(0x665D66AF)
+I (..\App\uart.h)(0x667E1700)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5EC7840C)
 I (..\App\response_ci.h)(0x66665A8A)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x66583BC1)
@@ -628,19 +628,19 @@ I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pwr.h)(0x66583BC1)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim.h)(0x66583BC1)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h)(0x66583BC1)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h)(0x66583BC1)
-I (..\App\cli_command.h)(0x66739BF8)
-I (..\App\err_types.h)(0x666A6E93)
-I (..\App\data_frame.h)(0x6667D6BB)
-F (..\App\cli_command.c)(0x667A4B30)(--c99 -c --cpu Cortex-M3 -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include -I ../App-I.\RTE\_CONTROLLER_V3.0-IC:\Users\vutie\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include-IC:\Users\vutie\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.4.1\Device\Include-D__UVISION_VERSION="531" -D_RTE_ -DSTM32F10X_HD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xE-o controller_v3.0\cli_command.o --omf_browse controller_v3.0\cli_command.crf --depend controller_v3.0\cli_command.d)
-I (..\App\cli_command.h)(0x66739BF8)
+I (..\App\cli_command.h)(0x667E1A8A)
+I (..\App\err_types.h)(0x667E1CCB)
+I (..\App\data_frame.h)(0x667E1CA5)
+F (..\App\cli_command.c)(0x667E199A)(--c99 -c --cpu Cortex-M3 -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include -I ../App-I.\RTE\_CONTROLLER_V3.0-IC:\Users\vutie\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include-IC:\Users\vutie\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.4.1\Device\Include-D__UVISION_VERSION="531" -D_RTE_ -DSTM32F10X_HD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xE-o controller_v3.0\cli_command.o --omf_browse controller_v3.0\cli_command.crf --depend controller_v3.0\cli_command.d)
+I (..\App\cli_command.h)(0x667E1A8A)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5EC7840C)
-I (..\App\err_types.h)(0x666A6E93)
-I (..\App\data_frame.h)(0x6667D6BB)
+I (..\App\err_types.h)(0x667E1CCB)
+I (..\App\data_frame.h)(0x667E1CA5)
 I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x5EC78414)
 I (..\App\mes_list_func.h)(0x66728E36)
 I (..\App\mes_type.h)(0x66692612)
 I (..\App\device_control.h)(0x66739B85)
-F (..\App\flash.c)(0x666A4DB6)(--c99 -c --cpu Cortex-M3 -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include -I ../App-I.\RTE\_CONTROLLER_V3.0-IC:\Users\vutie\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include-IC:\Users\vutie\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.4.1\Device\Include-D__UVISION_VERSION="531" -D_RTE_ -DSTM32F10X_HD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xE-o controller_v3.0\flash.o --omf_browse controller_v3.0\flash.crf --depend controller_v3.0\flash.d)
+F (..\App\flash.c)(0x667E1D45)(--c99 -c --cpu Cortex-M3 -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include -I ../App-I.\RTE\_CONTROLLER_V3.0-IC:\Users\vutie\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include-IC:\Users\vutie\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.4.1\Device\Include-D__UVISION_VERSION="531" -D_RTE_ -DSTM32F10X_HD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xE-o controller_v3.0\flash.o --omf_browse controller_v3.0\flash.crf --depend controller_v3.0\flash.d)
 I (..\App\flash.h)(0x666A4DBA)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x66583BC1)
 I (../Core/Inc/stm32f1xx_hal_conf.h)(0x6666BF3E)
@@ -711,11 +711,11 @@ F (..\App\supplement.c)(0x667CCCC8)(--c99 -c --cpu Cortex-M3 -g -O3 --apcs=inter
 I (..\App\supplement.h)(0x667CC94E)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5EC7840C)
 I (C:\Keil_v5\ARM\ARMCC\include\math.h)(0x5EC78414)
-F (..\App\device_control.c)(0x667CD249)(--c99 -c --cpu Cortex-M3 -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include -I ../App-I.\RTE\_CONTROLLER_V3.0-IC:\Users\vutie\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include-IC:\Users\vutie\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.4.1\Device\Include-D__UVISION_VERSION="531" -D_RTE_ -DSTM32F10X_HD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xE-o controller_v3.0\device_control.o --omf_browse controller_v3.0\device_control.crf --depend controller_v3.0\device_control.d)
+F (..\App\device_control.c)(0x667CD45C)(--c99 -c --cpu Cortex-M3 -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include -I ../App-I.\RTE\_CONTROLLER_V3.0-IC:\Users\vutie\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include-IC:\Users\vutie\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.4.1\Device\Include-D__UVISION_VERSION="531" -D_RTE_ -DSTM32F10X_HD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xE-o controller_v3.0\device_control.o --omf_browse controller_v3.0\device_control.crf --depend controller_v3.0\device_control.d)
 I (..\App\device_control.h)(0x66739B85)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5EC7840C)
-I (..\App\data_frame.h)(0x6667D6BB)
-I (..\App\err_types.h)(0x666A6E93)
+I (..\App\data_frame.h)(0x667E1CA5)
+I (..\App\err_types.h)(0x667E1CCB)
 I (..\App\flash.h)(0x666A4DBA)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x66583BC1)
 I (../Core/Inc/stm32f1xx_hal_conf.h)(0x6666BF3E)

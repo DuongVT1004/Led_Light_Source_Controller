@@ -36,7 +36,7 @@ led_message_type led_code = {
 	.turn_on_off_shutter = 0x080F
 };
 
-// save data in s_frame from buffer
+// save data into s_frame from buffer
 void cli_command_handle(uint8_t *buffer, uint16_t len)
 {
 	memcpy(s_frame.Start_Sync, buffer, 2);
@@ -45,14 +45,18 @@ void cli_command_handle(uint8_t *buffer, uint16_t len)
 	memcpy(s_frame.Message_Type, buffer + 6, 2);
 	memcpy(s_frame.Data_Len, buffer + 8, 4);
 	memcpy(s_frame.End_Sync, buffer + len - 2, 2);
-	data_len = len - 14;
+	data_len = len - 14;  // length of data field
 	for(int i = 12; i < (len - 2); i++)
 	{
 		data[i - 12] = buffer[i];
 	}
-	mes_type = (((uint16_t)s_frame.Message_Type[0]) << 8) | s_frame.Message_Type[1];
+	mes_type = (((uint16_t)s_frame.Message_Type[0]) << 8) | s_frame.Message_Type[1];  // message type of received frame
 }
 
+/*
+	function to excute the work to be processed
+	compare received message type to message type in library and excute corresponding function
+*/
 void device_excute()
 {
 	int i = 0;
@@ -67,6 +71,14 @@ void device_excute()
 	
 }
 
+/*
+	Handle device infomation
+	- Take device infomation from flash and save to device_infomation variable
+	- Save data to s_frame and calculate data field length and message type
+	- Excute handle : 
+		+ If error, response error
+		+ If not error, excute command
+*/
 void device_handle(uint8_t *buffer, uint16_t len)
 {
 	take_device_info_from_flash(&device_infomation);
@@ -77,11 +89,13 @@ void device_handle(uint8_t *buffer, uint16_t len)
 	}
 }
 
+// initialize device infomation (hardware version, firmware vesion, serial number, number of channel, type of currents)
 void initialize_device()
 {
 	device_infomation_init(&device_infomation);
 }
 
+// erase device infomation
 void erase_device()
 {
 	erase_device_info();

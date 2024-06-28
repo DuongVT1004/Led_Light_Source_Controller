@@ -86,6 +86,7 @@ extern uint8_t flag;  // flag indicates the end of uart message
 uint8_t counter = 0;  // if counter is 100, timer is stop and uart transmition ends
 BH1750_device_t* test_dev;
 
+// UART interrupt
 void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
 {
 	if(huart->Instance == huart1.Instance)
@@ -95,6 +96,7 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
 	}
 }
 
+// Timer interrupt
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 {
 	UNUSED(htim);

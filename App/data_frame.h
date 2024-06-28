@@ -3,6 +3,7 @@
 
 #include <stdint.h>
 
+// define fields, except data field 
 typedef struct
 {	
 	uint8_t Start_Sync[2];
@@ -23,6 +24,7 @@ typedef struct
 	uint8_t End_Sync[2];
 } res_data_field;
 
+// init default fields
 typedef struct {
 	uint16_t r_Start_Syn;
 	uint16_t r_Protocol_Ver;
@@ -31,6 +33,7 @@ typedef struct {
 	uint16_t r_End_Syn;
 } res_data_init;
 
+// init error code
 typedef struct {
 	uint16_t success;
 	uint16_t invalid_protocol;
@@ -42,6 +45,7 @@ typedef struct {
 	uint16_t device_busy;
 }err_code_typedef;
 
+// data of channel
 typedef struct
 {
 	uint8_t channel_index;
@@ -50,6 +54,7 @@ typedef struct
 	uint16_t channel_current;
 } __attribute__((packed)) channel_typedef;
 
+// data of device
 typedef struct
 {
 	uint16_t hardware_ver;
@@ -59,6 +64,7 @@ typedef struct
 	channel_typedef channel[8];
 } __attribute__((packed)) device_typedef;
 
+// init device function to excute
 typedef struct
 {
 	uint16_t get_hardware_ver;
@@ -70,6 +76,7 @@ typedef struct
 	uint16_t wire_firmware;
 } device_message_type;
 
+// init channel functions to excute
 typedef struct
 {
 	uint16_t get_number_of_channel;

@@ -1,13 +1,18 @@
 #include "flash.h"
 
+// unlock flash
 void flash_unlock()
 {
 	HAL_FLASH_Unlock();
 }
+
+// lock flash
 void flash_lock()
 {
 	HAL_FLASH_Lock();
 }
+
+// erase one page of flash
 void flash_erease(uint32_t addr)
 {
 	FLASH_EraseInitTypeDef eraseInit;
@@ -18,6 +23,7 @@ void flash_erease(uint32_t addr)
 	HAL_FLASHEx_Erase(&eraseInit,&PageError);
 }
 
+// write to flash half word per time
 void flash_write_arr(uint32_t addr,uint8_t *p,uint16_t len)
 {
 	for(uint16_t i =0;i<len;i+=2)
@@ -26,6 +32,8 @@ void flash_write_arr(uint32_t addr,uint8_t *p,uint16_t len)
 	}
 	
 }
+
+// read flash
 void flash_read_arr(uint32_t addr,uint8_t *data,uint16_t len)
 {
 	for(uint16_t i =0;i<len;i+=2)
@@ -36,6 +44,7 @@ void flash_read_arr(uint32_t addr,uint8_t *data,uint16_t len)
 	}
 }
 
+// erase and write to flash
 void flash_erase_and_write(uint32_t addr,uint8_t *p,uint16_t len)
 {
 	flash_unlock();
